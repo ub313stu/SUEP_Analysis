@@ -106,7 +106,7 @@ void doHistos::Loop(std::string s_sample,bool isMC)
       // * 
       // Pass HT or jet triggers 
       // * 
-      if (ht < 1200 && lead_jet_pt < 1000) continue;
+      if (ht < 1200 && lead_jet_pt < 500) continue;
 
       plotter.Plot1D(Form("%s_trig_nchpfs" ,s_sample.c_str()),";n_{chpfs}", npfs, 100,0,1000);
 
