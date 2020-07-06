@@ -118,7 +118,7 @@ void doHistos::Loop(std::string s_sample,bool isMC)
 
 
       // Trying different jet cone sizes and algorithms here...
-      makeJets(s_sample, ientry, tracks, 0.8);
+      makeJets(s_sample, ientry, tracks, 10.0);
       makeJets(s_sample, ientry, tracks, 1.5);
       makeJets(s_sample, ientry, tracks, 2.0);
 
