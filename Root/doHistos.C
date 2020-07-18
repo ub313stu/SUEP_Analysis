@@ -32,6 +32,8 @@ void doHistos::Loop(std::string s_sample,bool isMC)
       float ht=0;
       float lead_jet_pt=0;
       float njets=0;
+      float jet_rads=0;
+      float sum_pt=0;
       TLorentzVector jet_p4;
       std::vector<Jet> jets; jets.clear();
       for (unsigned int i = 0; i <Jets_ID->size(); i++)
@@ -47,6 +49,11 @@ void doHistos::Loop(std::string s_sample,bool isMC)
 
       	jet_p4 = Jets->at(i);
       	jet.p4 = jet_p4;
+	
+	TLorentzVector jet_p4; jet_p4.SetPtEtaPhiE(0., 0., 0., 0.);
+	jet_p4.DeltaR(constituent_p4)
+	      
+	sum_pt += jet_p4;
 
       	if (jet_p4.Pt() > lead_jet_pt ) lead_jet_pt = jet_p4.Pt() ;
 
@@ -55,6 +62,7 @@ void doHistos::Loop(std::string s_sample,bool isMC)
       plotter.Plot1D(Form("%s_testHT",s_sample.c_str()),";H_{T} [GeV]", ht, 20,0,2000 );
       plotter.Plot1D(Form("%s_HT"    ,s_sample.c_str()),";H_{T} [GeV]", HT, 20,0,2000 );
       plotter.Plot1D(Form("%s_njets" ,s_sample.c_str()),";n_{jets}", njets, 20,-0.5,19.5 );
+      plotter.Plot1D(Form("%s_jet_width",,s_sample.c_str()),";, jet-width, 20, , 0 ,
 
       /*
       Fat jets
