@@ -44,6 +44,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 
 		float dem=0;
 		float num=0;
+		float jet_width=0;
 		TLorentzVector jet_p4;
 		TLorentzVector constituent_p4;
 		
