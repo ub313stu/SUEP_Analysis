@@ -42,13 +42,29 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 
 		plotter.Plot2D(Form("%s_evt%lli_event_display_jetsAK%i",sample_name.c_str(),ievent,cone),";eta;phi;pt", jets[i].eta(), jets[i].phi_std(), 100, 3.5,3.5,100,3.5,3.5 , jets[i].perp());
 
+		float dem=0;
+		float num=0;
+		TLorentzVector jet_p4;
+		TLorentzVector constituent_p4;
+		
+		jet_p4.SetPtEtaPhiE(jets[i].pt(), jets[i].eta(), jets[i].phi_std(), jets[i].E());
+		
+		
 		vector<PseudoJet> constituents = jets[i].constituents();
 		for (unsigned j = 0; j < constituents.size(); j++) {
-
+			
+			constituent_p4.SetPtEtaPhiM(constituents[j].pt(), constituents[j].eta(), constituents[j].phi_std(), constituents[j].E());
+			
+			num += jet_p4.DeltaR(constituent_p4)*constituent_p4.Pt();
+			dem += constituent_p4.Pt();
+			
 			plotter.Plot1D(Form( "%s_jetsAK%i_constit_pt", sample_name.c_str(),cone),";constit pt", constituents[j].pt(), 100, 0, 100 );
 
 		}
+		jet_width = num/dem;
+		
 		plotter.Plot1D(Form( "%s_jetsAK%i_nconstit", sample_name.c_str(),cone),";n constit.", constituents.size(), 100, 0, 500 );
+		plotter.Plot1D(Form( "%s_jetsAK%i_jet_width", sample_name.c_str(),cone),";jet width.", jet_width, 100, 0, 3 );
 
 	}
 	plotter.Plot1D(Form( "%s_jetsAK%i_njets", sample_name.c_str(),cone),";njets", njets, 20, -0.5, 19.5 );
