@@ -45,7 +45,6 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		float dem=0;
 		float num=0;
 		float jet_width=0;
-		float SUEP_jet=0;
 		float SUEP_jet_constituents=0;
 		TLorentzVector jet_p4;
 		TLorentzVector constituent_p4;
@@ -56,7 +55,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		vector<PseudoJet> constituents = jets[i].constituents();
 		for (unsigned j = 0; j < constituents.size(); j++) {
 			
-			if ( jets[i].constituents > SUEP_jet_constituents ); {
+			if ( jets[i].constituents() > SUEP_jet_constituents ); {
 				SUEP_jet = jets[i]
 			}
 				
