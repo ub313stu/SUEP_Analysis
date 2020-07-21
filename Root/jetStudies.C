@@ -25,7 +25,12 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 
 	// print the jets
 	int njets=0;
+	float maxconstituents=0;
+	PseudoJet SUEP_jet;
+	float SUEP_jet_width=0;
+	
 	for (unsigned i = 0; i < jets.size(); i++) {
+		
 
 		// basic cleaning cuts 
 		if ( jets[i].pt() < 30 ) continue; // need some min jet cut
@@ -33,6 +38,8 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 
 		njets+=1;
 
+		
+		
 		// add plots of other variables here
 
 		plotter.Plot1D(Form( "%s_jetsAK%i_pt" , sample_name.c_str(),cone),";jet pt" , jets[i].pt()      , 100, 0, 1000 );
@@ -45,8 +52,8 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		float dem=0;
 		float num=0;
 		float jet_width=0;
-		float maxconstituents=0;
-		TLorentzVector SUEP_jet;
+		
+		
 		
 		TLorentzVector jet_p4;
 		TLorentzVector constituent_p4;
@@ -55,14 +62,14 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		
 		
 		vector<PseudoJet> constituents = jets[i].constituents();
+		
+		int nconstit = constituents.size(); 		
+		
+		
 		for (unsigned j = 0; j < constituents.size(); j++) {
 			
-			int nconstit = constituents.size(); 
-			if ( nconstit > maxconstituents ); {
-				maxconstituents = nconstit;
-				SUEP_jet=jet_p4;
-			}
-				
+			
+			
 			constituent_p4.SetPtEtaPhiM(constituents[j].pt(), constituents[j].eta(), constituents[j].phi_std(), constituents[j].E());
 			
 			num += jet_p4.DeltaR(constituent_p4)*constituent_p4.Pt();
@@ -72,13 +79,24 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 
 		}
 		jet_width = num/dem;
-		;
+		
+		if ( nconstit > maxconstituents ) {
+				maxconstituents = nconstit;
+				SUEP_jet = jets[i];
+				SUEP_jet_width = jet_width;
+			
+			}
+		
+		
+		
 		plotter.Plot1D(Form( "%s_jetsAK%i_nconstit", sample_name.c_str(),cone),";n constit.", constituents.size(), 100, 0, 500 );
 		plotter.Plot1D(Form( "%s_jetsAK%i_jet_width", sample_name.c_str(),cone),";jet width.", jet_width, 100, 0, 3 );
-		plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet", sample_name.c_str(),cone),";SUEP Jet.", maxconstituents, 100, 0, 500 );
+		
 
 	}
 	plotter.Plot1D(Form( "%s_jetsAK%i_njets", sample_name.c_str(),cone),";njets", njets, 20, -0.5, 19.5 );
+	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet", sample_name.c_str(),cone),";SUEP Jet.", maxconstituents, 100, 0, 500 );
+	plotter.Plot1D(Form( "%s_jetsAK%i_jet_width", sample_name.c_str(),cone),";jet width.", SUEP_jet_width, 100, 0, 3 );
 
 
 
