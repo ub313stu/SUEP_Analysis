@@ -56,7 +56,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		vector<PseudoJet> constituents = jets[i].constituents();
 		for (unsigned j = 0; j < constituents.size(); j++) {
 			
-			if jet[i].constituents > SUEP_jet.constituents; {
+			if ( jet[i].constituents > SUEP_jet.constituents ); {
 				SUEP_jet = jet[i]
 			}
 				
