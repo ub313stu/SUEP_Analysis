@@ -207,6 +207,9 @@ dists.append("trueNint")
 dists.append("jetsAK8_jet_width")
 dists.append("jetsAK15_jet_width")
 dists.append("jetsAK20_jet_width")
+dists.append("jetsAK8_suep_jet")
+dists.append("jetsAK15_suep_jet")
+dists.append("jetsAK20_suep_jet")
 
 for dist in dists:
     #compareMass(2,2,"darkPho",dist)
