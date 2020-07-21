@@ -56,7 +56,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		for (unsigned j = 0; j < constituents.size(); j++) {
 			
 			if ( jets[i].constituents() > SUEP_jet_constituents ); {
-				SUEP_jet = jets[i]
+				SUEP_jet_constituents = jets[i].constituents()
 			}
 				
 			constituent_p4.SetPtEtaPhiM(constituents[j].pt(), constituents[j].eta(), constituents[j].phi_std(), constituents[j].E());
