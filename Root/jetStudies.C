@@ -105,9 +105,9 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 	plotter.Plot1D(Form( "%s_jetsAK%i_njets", sample_name.c_str(),cone),";njets", njets, 20, -0.5, 19.5 );
 	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_nconstit", sample_name.c_str(),cone),";SUEP Jet.", maxconstituents, 100, 0, 500 );
 	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_width", sample_name.c_str(),cone),";jet width.", SUEP_jet_width, 100, 0, 5 );
-	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_width", sample_name.c_str(),cone),";jet width.", SUEP_jet_pt, 100, 0, 1000 );
-	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_width", sample_name.c_str(),cone),";jet width.", SUEP_jet_eta, 100, -3.5, 3.5 );
-	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_width", sample_name.c_str(),cone),";jet width.", SUEP_jet_phi, 100, -3.5, 3.5 );
+	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_pt", sample_name.c_str(),cone),";pt.", SUEP_jet_pt, 100, 0, 1000 );
+	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_eta", sample_name.c_str(),cone),";eta.", SUEP_jet_eta, 100, -3.5, 3.5 );
+	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_phi", sample_name.c_str(),cone),";phi.", SUEP_jet_phi, 100, -3.5, 3.5 );
 
 
 
