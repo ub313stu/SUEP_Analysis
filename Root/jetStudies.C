@@ -91,7 +91,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 				SUEP_jet_pt = jets[i].pt();
 				SUEP_jet_eta = jets[i].eta();
 				SUEP_jet_phi = jets[i].phi();
-				SUEP_jet_mass = jet[i].m();
+				SUEP_jet_mass = jets[i].m();
 
 			
 			}
