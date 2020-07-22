@@ -88,9 +88,9 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 				maxconstituents = nconstit;
 				SUEP_jet = jets[i];
 				SUEP_jet_width = jet_width;
-				SUEP_jet_pt = jets[i].pt;
-				SUEP_jet_eta = jets[i].eta;
-				SUEP_jet_phi = jets[i].phi;
+				SUEP_jet_pt = jets[i].pt();
+				SUEP_jet_eta = jets[i].eta();
+				SUEP_jet_phi = jets[i].phi();
 
 			
 			}
