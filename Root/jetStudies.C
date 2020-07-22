@@ -109,7 +109,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_pt", sample_name.c_str(),cone),";jet pt.", SUEP_jet_pt, 100, 0, 1000 );
 	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_eta", sample_name.c_str(),cone),";eta.", SUEP_jet_eta, 100, -3.5, 3.5 );
 	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_phi", sample_name.c_str(),cone),";phi.", SUEP_jet_phi, 100, -3.5, 3.5 );
-	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_mass", sample_name.c_str(),cone),";mass.", SUEP_jet_mass, 100, 0, 1000 );
+	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_mass", sample_name.c_str(),cone),";jet mass.", SUEP_jet_mass, 100, 0, 1000 );
 
 
 
