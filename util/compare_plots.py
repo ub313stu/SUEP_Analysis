@@ -102,8 +102,7 @@ def compareSUEPs(size,dist):
     labels.append("suep_jets")  
   
     compare1D(hists,labels,"compare_suep/mMed{}_temp{}_mDark{}_decay_{}_{}".format(mMed,temp,mDark,decay,"jets_AK15_jetwidth"))
-    
-compareSUEPs()
+
 
 sizes = []
 sizes.append("jetsAK8")
