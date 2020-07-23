@@ -55,7 +55,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 
 		float dem=0;
 		float num=0;
-		float jet_width=0;
+		float width=0;
 		
 		
 		
@@ -87,7 +87,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		if ( nconstit > maxconstituents ) {
 				maxconstituents = nconstit;
 				SUEP_jet = jets[i];
-				SUEP_jet_width = jet_width;
+				SUEP_jet_width = width;
 				SUEP_jet_pt = jets[i].pt();
 				SUEP_jet_eta = jets[i].eta();
 				SUEP_jet_phi = jets[i].phi();
