@@ -17,7 +17,7 @@ def adjust(hist):
         hist.GetXaxis().SetTitle("n neutrals")
     return
   
- def clean1D(hist):
+def clean1D(hist):
     # Clean
     adjust(hist)
     hist.SetLineWidth(2)
