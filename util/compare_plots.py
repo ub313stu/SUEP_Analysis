@@ -91,17 +91,17 @@ def compareSUEPs(size,mMed,dist):
     hists = []
     labels = []
   
-    histname = "mDark-{}_temp-{}_decay-{}_{}_{}_{}".format(mMed,mDark,temp,decay,size,dist)
+    histname = "mMed_mDark-{}_temp-{}_decay-{}_{}_{}".format(mMed,mDark,temp,decay,size,dist)
     hists.append(get1D(mMed,mDark,temp,decay,histname))
     #labels.append(label(mMed,mDark,temp,decay))
     labels.append("all_jets")
   
-    histname = "mDark-{}_temp-{}_decay-{}_{}_{}_suep_jet_{}".format(mMed,mDark,temp,decay,size,dist)
+    histname = "mMed_mDark-{}_temp-{}_decay-{}_{}_suep_jet_{}".format(mMed,mDark,temp,decay,size,dist)
     hists.append(get1D(mMed,mDark,temp,decay,histname))
     #labels.append(label(mMed,mDark,temp,decay))
     labels.append("suep_jets")  
   
-    compare1D(hists,labels,"compare_suep/temp{}_mDark{}_decay_{}_{}_{}_{}".format(mMed,temp,mDark,decay,size,dist))
+    compare1D(hists,labels,"compare_suep/mMed{}_temp{}_mDark{}_decay_{}_{}_{}".format(mMed,temp,mDark,decay,size,dist))
 
 
 sizes = []
