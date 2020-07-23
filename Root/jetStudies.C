@@ -82,7 +82,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 			plotter.Plot1D(Form( "%s_jetsAK%i_constit_pt", sample_name.c_str(),cone),";constit pt", constituents[j].pt(), 100, 0, 100 );
 
 		}
-		jet_width = num/dem;
+		width = num/dem;
 		
 		if ( nconstit > maxconstituents ) {
 				maxconstituents = nconstit;
