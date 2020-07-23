@@ -115,7 +115,7 @@ dists.append("nconstit")
 dists.append("pt")
 dists.append("eta")
 dists.append("phi")
-#dists.append("mass")
+dists.append("mass")
 
 for size in sizes:
     for dist in dists:
