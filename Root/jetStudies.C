@@ -99,7 +99,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		
 		
 		plotter.Plot1D(Form( "%s_jetsAK%i_nconstit", sample_name.c_str(),cone),";n constit.", constituents.size(), 100, 0, 500 );
-		plotter.Plot1D(Form( "%s_jetsAK%i_jet_width", sample_name.c_str(),cone),";jet width.", jet_width, 100, 0, 2 );
+		plotter.Plot1D(Form( "%s_jetsAK%i_width", sample_name.c_str(),cone),";jet width.", width, 100, 0, 2 );
 		
 
 	}
