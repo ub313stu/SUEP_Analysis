@@ -17,7 +17,7 @@ def adjust(hist):
         hist.GetXaxis().SetTitle("n neutrals")
     return
   
-  def clean1D(hist):
+ def clean1D(hist):
     # Clean
     adjust(hist)
     hist.SetLineWidth(2)
@@ -27,7 +27,7 @@ def adjust(hist):
     #hist.Scale(1.0/hist.Integral(0,-1))
     return hist
   
-  def get1D(mMed,mDark,temp,decay,histname):
+def get1D(mMed,mDark,temp,decay,histname):
 
     # Get hist
     filename = "output/mMed-{}_mDark-{}_temp-{}_decay-{}.root".format(mMed,mDark,temp,decay)
