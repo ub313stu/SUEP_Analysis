@@ -64,7 +64,7 @@ def compare1D(hists,labels,filename):
 
     ymax = 0
     for i,hist in enumerate(hists): 
-        hist.SetLineColor(colors[2i])
+        hist.SetLineColor(colors[i])
         if "QCD" in labels[i]: hist.SetLineColor(ROOT.kBlack) 
         if i==0: hist.Draw("hist")
         else : hist.Draw("hist same")
@@ -83,8 +83,8 @@ def compare1D(hists,labels,filename):
     c.SetLogy(0)
     c.Print("plots/{}_lin.png".format(filename))
     
-def compareSUEPs(size,dist):
-    mMed = 750
+def compareSUEPs(size,mMed,dist):
+
     temp = 2
     mDark = 2
     decay = "generic"
@@ -109,6 +109,12 @@ sizes.append("jetsAK8")
 sizes.append("jetsAK15")
 sizes.append("jetsAK20")
 
+mMeds = []
+mMeds.append(125)
+mMeds.append(400)
+mMeds.append(750)
+mMeds.append(1000)
+    
 dists = []
 dists.append("width")
 dists.append("nconstit")
@@ -118,7 +124,8 @@ dists.append("phi")
 dists.append("mass")
 
 for size in sizes:
-    for dist in dists:
-        compareSUEPs(size,dist)
+    for mMed in mMeds:
+        for dist in dists:
+            compareSUEPs(size,mMed,dist)
         
     
