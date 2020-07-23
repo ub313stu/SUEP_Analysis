@@ -64,7 +64,7 @@ def compare1D(hists,labels,filename):
 
     ymax = 0
     for i,hist in enumerate(hists): 
-        hist.SetLineColor(colors[i])
+        hist.SetLineColor(colors[2i])
         if "QCD" in labels[i]: hist.SetLineColor(ROOT.kBlack) 
         if i==0: hist.Draw("hist")
         else : hist.Draw("hist same")
