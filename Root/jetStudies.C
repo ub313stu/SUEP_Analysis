@@ -49,6 +49,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		plotter.Plot1D(Form( "%s_jetsAK%i_pt" , sample_name.c_str(),cone),";jet pt" , jets[i].pt()      , 100, 0, 1000 );
 		plotter.Plot1D(Form( "%s_jetsAK%i_eta", sample_name.c_str(),cone),";jet eta", jets[i].eta()     , 100, -3.5, 3.5 );
 		plotter.Plot1D(Form( "%s_jetsAK%i_phi", sample_name.c_str(),cone),";jet phi", jets[i].phi_std() , 100, -3.5, 3.5 );
+		plotter.Plot1D(Form( "%s_jetsAK%i_mass", sample_name.c_str(),cone),";jet mass", jets[i].m() , 100, 0, 1000 );
 
 
 		plotter.Plot2D(Form("%s_evt%lli_event_display_jetsAK%i",sample_name.c_str(),ievent,cone),";eta;phi;pt", jets[i].eta(), jets[i].phi_std(), 100, 3.5,3.5,100,3.5,3.5 , jets[i].perp());
@@ -90,7 +91,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 				SUEP_jet_width = width;
 				SUEP_jet_pt = jets[i].pt();
 				SUEP_jet_eta = jets[i].eta();
-				SUEP_jet_phi = jets[i].phi();
+				SUEP_jet_phi = jets[i].phi_std();
 				SUEP_jet_mass = jets[i].m();
 
 			
