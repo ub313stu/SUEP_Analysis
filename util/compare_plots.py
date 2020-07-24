@@ -83,7 +83,7 @@ def compare1D(hists,labels,filename):
     c.SetLogy(0)
     c.Print("plots/{}_lin.png".format(filename))
     
-def compareSUEPs(mMed,size,dist):
+def compareSUEPs(size,dist):
 
     temp = 2
     mDark = 2
@@ -126,6 +126,6 @@ dists.append("mass")
 for mMed in mMeds:
     for size in sizes:
         for dist in dists:
-            compareSUEPs(mMed,size,dist)
+            compareSUEPs(size,dist)
         
     
