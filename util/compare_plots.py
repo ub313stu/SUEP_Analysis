@@ -83,7 +83,7 @@ def compare1D(hists,labels,filename):
     c.SetLogy(0)
     c.Print("plots/{}_lin.png".format(filename))
     
-def compareSUEPs(size,dist):
+def compareSUEPs(mMed,size,dist):
 
     temp = 2
     mDark = 2
@@ -91,12 +91,12 @@ def compareSUEPs(size,dist):
     hists = []
     labels = []
   
-    histname = "mMed-{}_mDark-{}_temp-{}_decay-{}_{}".format(mMed,mDark,temp,decay,size,dist)
+    histname = "{}_mDark-{}_temp-{}_decay-{}_{}".format(mMed,mDark,temp,decay,size,dist)
     hists.append(get1D(mMed,mDark,temp,decay,histname))
     #labels.append(label(mMed,mDark,temp,decay))
     labels.append("all_jets")
   
-    histname = "mMed-{}_mDark-{}_temp-{}_decay-{}_{}_suep_jet_{}".format(mMed,mDark,temp,decay,size,dist)
+    histname = "{}_mDark-{}_temp-{}_decay-{}_{}_suep_jet_{}".format(mMed,mDark,temp,decay,size,dist)
     hists.append(get1D(mMed,mDark,temp,decay,histname))
     #labels.append(label(mMed,mDark,temp,decay))
     labels.append("suep_jets")  
@@ -127,6 +127,8 @@ print mMeds
 for mMed in mMeds:
     for size in sizes:
         for dist in dists:
-            compareSUEPs(size,dist)
+            print mMed, size, dist
+            compareSUEPs(mMed,size,dist)
+            
         
     
