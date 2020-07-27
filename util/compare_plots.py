@@ -92,6 +92,7 @@ def compareSUEPs(mMed,size,dist):
     labels = []
   
     histname = "mMed-{}_mDark-{}_temp-{}_decay-{}_{}".format(mMed,mDark,temp,decay,size,dist)
+    print histname
     hists.append(get1D(mMed,mDark,temp,decay,histname))
     #labels.append(label(mMed,mDark,temp,decay))
     labels.append("all_jets")
