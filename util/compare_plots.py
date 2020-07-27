@@ -123,6 +123,7 @@ dists.append("eta")
 dists.append("phi")
 dists.append("mass")
 
+print mMeds
 for mMed in mMeds:
     for size in sizes:
         for dist in dists:
