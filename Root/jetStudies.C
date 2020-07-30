@@ -1,6 +1,6 @@
 #define jetStudies_cxx
 
-#include "fastjet/ClusterSequence.hh"
+#include "fastjet/ClusterSequenceArea.hh"
 
 using namespace fastjet;
 
@@ -15,7 +15,10 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 	// choose a jet definition
 	int cone = R*10;
 	JetDefinition jet_def(antikt_algorithm, R);
-	AreaDefinition area_def(passive_area);
+	
+	//area def
+	double ghost_maxrap = 2.5; // e.g. if particles go up to y=2.5
+	AreaDefinition area_def(passive_area, GhostedAreaSpec(ghost_maxrap));
 
 	// run the clustering, extract the jets
 	//ClusterSequence cs(particles, jet_def);
