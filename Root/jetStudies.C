@@ -18,7 +18,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 	AreaDefinition area_def(passive_area);
 
 	// run the clustering, extract the jets
-	#ClusterSequence cs(particles, jet_def);
+	//ClusterSequence cs(particles, jet_def);
 	ClusterSequenceArea(particles, jet_def, area_def);
 	vector<PseudoJet> jets = sorted_by_pt(cs.inclusive_jets());
 
@@ -89,7 +89,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		}
 		width = num/dem;
 		
-		area = jet.area();
+		area = jet[i].area();
 		
 		if ( nconstit > maxconstituents ) {
 				maxconstituents = nconstit;
