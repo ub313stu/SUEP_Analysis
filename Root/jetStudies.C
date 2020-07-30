@@ -32,6 +32,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 	float SUEP_jet_eta=0;
 	float SUEP_jet_phi=0;
 	float SUEP_jet_mass=0;
+	float SUEP_jet_area=0;
 	
 	for (unsigned i = 0; i < jets.size(); i++) {
 		
@@ -57,6 +58,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		float dem=0;
 		float num=0;
 		float width=0;
+		float area=0;
 		
 		
 		
@@ -85,6 +87,8 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		}
 		width = num/dem;
 		
+		area = passive_area[i];
+		
 		if ( nconstit > maxconstituents ) {
 				maxconstituents = nconstit;
 				SUEP_jet = jets[i];
@@ -93,6 +97,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 				SUEP_jet_eta = jets[i].eta();
 				SUEP_jet_phi = jets[i].phi_std();
 				SUEP_jet_mass = jets[i].m();
+				SUEP_jet_area = area;
 
 			
 			}
@@ -101,6 +106,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		
 		plotter.Plot1D(Form( "%s_jetsAK%i_nconstit", sample_name.c_str(),cone),";n constit.", constituents.size(), 100, 0, 500 );
 		plotter.Plot1D(Form( "%s_jetsAK%i_width", sample_name.c_str(),cone),";jet width.", width, 100, 0, 2 );
+		plotter.Plot1D(Form( "%s_jetsAK%i_area", sample_name.c_str(),cone),";jet area.", area, 100, 0, 2 );
 		
 
 	}
@@ -111,6 +117,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_eta", sample_name.c_str(),cone),";eta.", SUEP_jet_eta, 100, -3.5, 3.5 );
 	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_phi", sample_name.c_str(),cone),";phi.", SUEP_jet_phi, 100, -3.5, 3.5 );
 	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_mass", sample_name.c_str(),cone),";jet mass.", SUEP_jet_mass, 100, 0, 1000 );
+	plotter.Plot1D(Form( "%s_jetsAK%i_suep_jet_area", sample_name.c_str(),cone),";jet area.", SUEP_jet_area, 100, 0, 2 );
 
 
 
