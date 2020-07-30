@@ -15,9 +15,11 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 	// choose a jet definition
 	int cone = R*10;
 	JetDefinition jet_def(antikt_algorithm, R);
+	AreaDefinition area_def(passive_area);
 
 	// run the clustering, extract the jets
-	ClusterSequence cs(particles, jet_def);
+	#ClusterSequence cs(particles, jet_def);
+	ClusterSequenceArea(particles, jet_def, area_def);
 	vector<PseudoJet> jets = sorted_by_pt(cs.inclusive_jets());
 
 	// print out some info about reco method
@@ -87,7 +89,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		}
 		width = num/dem;
 		
-		area = jets[i].passive_area();
+		area = jet.area();
 		
 		if ( nconstit > maxconstituents ) {
 				maxconstituents = nconstit;
