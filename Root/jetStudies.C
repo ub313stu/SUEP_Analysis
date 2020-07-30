@@ -22,7 +22,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 
 	// run the clustering, extract the jets
 	//ClusterSequence cs(particles, jet_def);
-	ClusterSequenceArea(particles, jet_def, area_def);
+	ClusterSequenceArea cs(particles, jet_def, area_def);
 	vector<PseudoJet> jets = sorted_by_pt(cs.inclusive_jets());
 
 	// print out some info about reco method
