@@ -87,7 +87,7 @@ void makeJets(std::string sample_name, Long64_t ievent, std::vector<Track> track
 		}
 		width = num/dem;
 		
-		area = passive_area[i];
+		area = jets[i].passive_area();
 		
 		if ( nconstit > maxconstituents ) {
 				maxconstituents = nconstit;
