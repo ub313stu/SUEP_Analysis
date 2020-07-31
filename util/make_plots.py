@@ -228,6 +228,12 @@ dists.append("jetsAK20_mass")
 dists.append("jetsAK8_suep_jet_mass")
 dists.append("jetsAK15_suep_jet_mass")
 dists.append("jetsAK20_suep_jet_mass")
+dists.append("jetsAK8_area")
+dists.append("jetsAK15_area")
+dists.append("jetsAK20_area")
+dists.append("jetsAK8_suep_jet_area")
+dists.append("jetsAK15_suep_jet_area")
+dists.append("jetsAK20_suep_jet_area")
 
 for dist in dists:
     #compareMass(2,2,"darkPho",dist)
